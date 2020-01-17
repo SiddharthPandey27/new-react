@@ -1,0 +1,57 @@
+<!-- React App From Scratch -->
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Marvel App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="root">Some assembly required. Avengers?.</div>
+        <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
+
+        <script>
+            const Avenger = (props) => {
+                return React.createElement(
+                    'div',
+                    {},
+                    [
+                        React.createElement('h2', {}, props.avengerName),
+                        React.createElement('p', {}, props.abilities)
+                    ]
+                )
+            }
+
+            class App extends React.Component {
+                render() {
+                    return React.createElement(
+                        'div',
+                        {},
+                        React.createElement('h1', {}, 'Avengers Assembled!'),
+                        React.createElement(Avenger, {
+                            avengerName: 'Captain America',
+                            abilities: 'Steve Rogers became Captain America in an experiment during World War II. The Leader of Avengers is a super soldier and holds a shield made of vibranium to defend and attack.'
+                        }),
+                        React.createElement(Avenger, {
+                            avengerName: 'Spider Man',
+                            abilities: 'Identity unknown to the general public. He is known to be close to Iron Man as both are seen from time to time working together in everyday life. The guy is like a spider but a man.'
+                        }),
+                        React.createElement(Avenger, {
+                            avengerName: 'Iron Man',
+                            abilities: 'I AM IRON MAN. This is how Tony Stark announced himself as Iron Man in front of a huge number of journlists with the world watching. In his own words, Genius, billionaire, playboy, philanthropist, Tony Stark always rise up when the Earth needs its best Avenger.'
+                        })
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                React.createElement(App),
+                document.getElementById('root')
+            );
+        </script>
+    </body>
+</html>
